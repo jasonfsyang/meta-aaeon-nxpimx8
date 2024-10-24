@@ -1,0 +1,10 @@
+ID=fsl-imx-wayland
+NAME="NXP i.MX Release Distro"
+VERSION="5.15-kirkstone"
+VERSION_ID=5.15-kirkstone
+PRETTY_NAME="NXP i.MX Release Distro 5.15-kirkstone"
+DISTRO_CODENAME="5.15-kirkstone" 
+PROJECT="srg-imx8mplus"
+IMAGE_VERSION="V_1.0.1"
+HW_INFO="4G RAM MT53E1G32D2"
+CREATE_DATE="2024/4/15"

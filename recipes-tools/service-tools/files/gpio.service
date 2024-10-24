@@ -1,0 +1,11 @@
+[Unit]
+Description=Control imx8 gpio high/low
+
+[Service]
+Type=simple
+ExecStart=/usr/sbin/setup_gpios.sh
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

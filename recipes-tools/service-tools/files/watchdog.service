@@ -1,0 +1,10 @@
+[Unit]
+Description=WatchDog supervise
+
+[Service]
+Type=simple
+ExecStart=/usr/sbin/watchdog.sh
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
