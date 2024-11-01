@@ -1,5 +1,5 @@
 FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
 
-SRC_URI += "file://004-uboot-all.patch"
+SRC_URI += "${EXTRA_UBOOT_PATCHES}"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"

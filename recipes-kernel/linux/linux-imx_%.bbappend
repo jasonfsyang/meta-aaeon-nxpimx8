@@ -1,5 +1,5 @@
 FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
 
-SRC_URI += "file://004-kernel-all.patch"
+SRC_URI += "${EXTRA_KERNEL_PATCHES}"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
