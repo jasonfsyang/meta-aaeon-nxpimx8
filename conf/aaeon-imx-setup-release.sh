@@ -184,6 +184,8 @@ echo "BBLAYERS += \"\${BSPDIR}/sources/meta-clang\"" >> $BUILD_DIR/conf/bblayers
 echo "BBLAYERS += \"\${BSPDIR}/sources/meta-openembedded/meta-gnome\"" >> $BUILD_DIR/conf/bblayers.conf
 echo "BBLAYERS += \"\${BSPDIR}/sources/meta-openembedded/meta-networking\"" >> $BUILD_DIR/conf/bblayers.conf
 echo "BBLAYERS += \"\${BSPDIR}/sources/meta-openembedded/meta-filesystems\"" >> $BUILD_DIR/conf/bblayers.conf
+echo "BBLAYERS += \"\${BSPDIR}/sources/meta-aaeon-nxpimx8/meta-parsec\"" >> $BUILD_DIR/conf/bblayers.conf
+echo "BBLAYERS += \"\${BSPDIR}/sources/meta-aaeon-nxpimx8/meta-tpm\"" >> $BUILD_DIR/conf/bblayers.conf
 
 echo "BBLAYERS += \"\${BSPDIR}/sources/meta-qt6\"" >> $BUILD_DIR/conf/bblayers.conf
 
@@ -203,5 +205,45 @@ if [ -d ../sources/meta-freescale ]; then
 fi
 
 cd  $BUILD_DIR
+
+echo "IMAGE_INSTALL:append = \" glibc-utils localedef\"" >> $BUILD_DIR/conf/local.conf
+echo "IMAGE_INSTALL:append = \" ntp\"" >> $BUILD_DIR/conf/local.conf
+echo "IMAGE_INSTALL:append = \" nfs-utils\"" >> $BUILD_DIR/conf/local.conf
+echo "IMAGE_INSTALL:append = \" dosfstools dos2unix\"" >> $BUILD_DIR/conf/local.conf
+echo "IMAGE_INSTALL:append = \" net-tools\"" >> $BUILD_DIR/conf/local.conf
+echo "IMAGE_INSTALL:append = \" i2c-tools\"" >> $BUILD_DIR/conf/local.conf
+echo "IMAGE_INSTALL:append = \" usbutils\"" >> $BUILD_DIR/conf/local.conf
+echo "IMAGE_INSTALL:append = \" iperf3\"" >> $BUILD_DIR/conf/local.conf
+echo "IMAGE_INSTALL:append = \" rng-tools\"" >> $BUILD_DIR/conf/local.conf
+echo "IMAGE_INSTALL:append = \" mtd-utils\"" >> $BUILD_DIR/conf/local.conf
+echo "IMAGE_INSTALL:append = \" bluez5\"" >> $BUILD_DIR/conf/local.conf
+echo "IMAGE_INSTALL:append = \" can-utils\"" >> $BUILD_DIR/conf/local.conf
+echo "IMAGE_INSTALL:append = \" pm-utils\"" >> $BUILD_DIR/conf/local.conf
+echo "IMAGE_INSTALL:append = \" lshw\"" >> $BUILD_DIR/conf/local.conf
+echo "IMAGE_INSTALL:append = \" memtester\"" >> $BUILD_DIR/conf/local.conf
+echo "IMAGE_INSTALL:append = \" gptfdisk\"" >> $BUILD_DIR/conf/local.conf
+echo "IMAGE_INSTALL:append = \" rsync\"" >> $BUILD_DIR/conf/local.conf
+echo "IMAGE_INSTALL:append = \" can-utils\"" >> $BUILD_DIR/conf/local.conf
+echo "IMAGE_INSTALL:append = \" wireless-tools\"" >> $BUILD_DIR/conf/local.conf
+echo "IMAGE_INSTALL:append = \" vim\"" >> $BUILD_DIR/conf/local.conf
+echo "IMAGE_INSTALL:append = \" ntfs-3g\"" >> $BUILD_DIR/conf/local.conf
+echo "IMAGE_INSTALL:append = \" libmnl\"" >> $BUILD_DIR/conf/local.conf
+echo "IMAGE_INSTALL:append = \" tpm2-tools\"" >> $BUILD_DIR/conf/local.conf
+echo "IMAGE_INSTALL:append = \" libmodbus\"" >> $BUILD_DIR/conf/local.conf
+echo "IMAGE_INSTALL:append = \" networkmanager\"" >> $BUILD_DIR/conf/local.conf
+echo "IMAGE_INSTALL:append = \" git doxygen libp11 dbus tpm2-openssl openssl-tpm-engine autoconf-archive json-c json-glib cmocka libtss2-tcti-device\"" >> $BUILD_DIR/conf/local.conf
+echo "IMAGE_INSTALL:append = \" lame cups libvpx libssh libssh2 fmt libpcre leveldb tslib zlib lsb-release libusb1 libusbg\"" >> $BUILD_DIR/conf/local.conf
+echo "IMAGE_INSTALL:append = \" libgpiod libgpiod-dev libgpiod-tools\"" >> $BUILD_DIR/conf/local.conf
+echo "IMAGE_INSTALL:append = \" dhcpcd wpa-supplicant\"" >> $BUILD_DIR/conf/local.conf
+echo "IMAGE_INSTALL:append = \" mesa libgl-mesa-dev\"" >> $BUILD_DIR/conf/local.conf
+echo "IMAGE_INSTALL:append = \" gstreamer1.0-plugins-bad\"" >> $BUILD_DIR/conf/local.conf
+echo "IMAGE_INSTALL:append = \" qtconnectivity qtimageformats qtmultimedia qtopcua qtsensors qtserialbus qtserialport\"" >> $BUILD_DIR/conf/local.conf
+echo "IMAGE_INSTALL:append = \" qtwebsockets qttools\"" >> conf/local.conf
+echo "IMAGE_INSTALL:append = \" ttf-bitstream-vera tree openldap openvpn qpdf tcpdump htop rfkill freetype cifs-utils v4l-utils mtools lmsensors\"" >> $BUILD_DIR/conf/local.conf
+echo "IMAGE_INSTALL:append = \" modemmanager minicom python3-speedtest-cli speedtest-cli\"" >> $BUILD_DIR/conf/local.conf
+
+echo "PACKAGE_EXCLUDE:append = \" connman connman-client connman-tests connman-tools\"" >> $BUILD_DIR/conf/local.conf
+echo "PACKAGE_EXCLUDE:append = \" packagegroup-core-tools-testapps\"" >> $BUILD_DIR/conf/local.conf
+
 clean_up
 unset FSLDISTRO

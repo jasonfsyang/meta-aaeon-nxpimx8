@@ -21,6 +21,7 @@ SRC_URI = "\
 	file://imx8mp_loop_test_RS485.sh \
 	file://test.tar;unpack=0 \
 "
+SRC_URI += "${EXTRA_UBOOT_BOOTLOADER_FILE}"
 
 S = "${WORKDIR}"
 
@@ -56,6 +57,9 @@ do_install () {
 	install -m 0755 ${WORKDIR}/imx8mp_loop_test_RS485.sh ${D}/LoopTest/imx8mp_loop_test_RS485.sh
 	
 	install -m 0755 ${WORKDIR}/test.tar ${D}/test.tar
+	
+	install -d ${D}/opt/images/yocto
+	install -m 0755 ${WORKDIR}/${EXTRA_UBOOT_BOOTLOADER} ${D}/opt/images/yocto/imx-boot-srg-imx8p-flash_evk
 }
  
 do_package_qa[noexec] = "1"
@@ -85,3 +89,5 @@ FILES:${PN} += " /LoopTest/imx8mp_loop_test_RS422.sh"
 FILES:${PN} += " /LoopTest/imx8mp_loop_test_RS485.sh"
 
 FILES:${PN} += " /test.tar"
+
+FILES:${PN} += " /opt/images/yocto/imx-boot-srg-imx8p-flash_evk"

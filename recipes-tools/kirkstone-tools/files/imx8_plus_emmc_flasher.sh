@@ -184,7 +184,7 @@ partition_drive () {
 
 copy_boot () {
 	echo "write bootloader into EMMC..."
-	dd if=/opt/images/Debian/imx-boot-imx8mpevk-sd.bin-flash_evk of=${destination} bs=1K seek=32 status=progress conv=fsync || write_failure
+	dd if=/opt/images/yocto/imx-boot-srg-imx8p-flash_evk of=${destination} bs=1K seek=32 status=progress conv=fsync || write_failure
 }
 
 copy_rootfs () {
@@ -238,7 +238,7 @@ copy_rootfs () {
 	fi
 	#generation_fstab
 
-	dd if=/run/media/rootfs-mmcblk2p2/usr/sbin/boot.scr of=/run/media/boot-mmcblk2p1/boot.scr && sync
+	#dd if=/run/media/rootfs-mmcblk2p2/usr/sbin/boot.scr of=/run/media/boot-mmcblk2p1/boot.scr && sync
 
 	flush_cache
 	umount /run/media/boot-mmcblk1p1 || umount -l /run/media/boot-mmcblk1p1 || write_failure
