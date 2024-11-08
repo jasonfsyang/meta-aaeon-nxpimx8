@@ -303,7 +303,7 @@ index 61e8a701961..bfb7920b0e3 100644
 +	};
  };
 diff --git a/board/freescale/imx8mp_evk/lpddr4_timing.c b/board/freescale/imx8mp_evk/lpddr4_timing.c
-index 8c5306d5d20..9066235feb7 100644
+index 8c5306d5d20..7f2076cf272 100644
 --- a/board/freescale/imx8mp_evk/lpddr4_timing.c
 +++ b/board/freescale/imx8mp_evk/lpddr4_timing.c
 @@ -1,6 +1,14 @@
@@ -322,17 +322,15 @@ index 8c5306d5d20..9066235feb7 100644
   */
  
  #include <linux/kernel.h>
-@@ -10,70 +18,35 @@ struct dram_cfg_param ddr_ddrc_cfg[] = {
- 	/** Initialize DDRC registers **/
+@@ -11,69 +19,34 @@ struct dram_cfg_param ddr_ddrc_cfg[] = {
  	{ 0x3d400304, 0x1 },
  	{ 0x3d400030, 0x1 },
--	{ 0x3d400000, 0xa3080020 },
+ 	{ 0x3d400000, 0xa3080020 },
 -#ifdef CONFIG_IMX8M_LPDDR4_FREQ0_2400MTS
 -	{ 0x3d400020, 0x223 },
 -	{ 0x3d400024, 0x124f800 },
 -	{ 0x3d400064, 0x4900a8 },
 -	{ 0x3d400070, 0x1027f90 },
-+	{ 0x3d400000, 0xa1080020 },
 +	{ 0x3d400020, 0x1223 },
 +	{ 0x3d400024, 0x16e3600 },
 +	{ 0x3d400064, 0x5b00d2 },
@@ -424,12 +422,10 @@ index 8c5306d5d20..9066235feb7 100644
 -#ifdef CONFIG_IMX8M_LPDDR4_FREQ0_2400MTS
 -	{ 0x3d400108, 0x60c1514 },
 -	{ 0x3d400200, 0x16 },
-+	{ 0x3d400108, 0x70e1617 },
-+	{ 0x3d400200, 0x1f },
- 	{ 0x3d40020c, 0x0 },
- 	{ 0x3d400210, 0x1f1f },
- 	{ 0x3d400204, 0x80808 },
- 	{ 0x3d400214, 0x7070707 },
+-	{ 0x3d40020c, 0x0 },
+-	{ 0x3d400210, 0x1f1f },
+-	{ 0x3d400204, 0x80808 },
+-	{ 0x3d400214, 0x7070707 },
 -	{ 0x3d400218, 0x68070707 },
 -	{ 0x3d40021c, 0xf08 },
 -	{ 0x3d400250, 0x1f05 },
@@ -457,10 +453,12 @@ index 8c5306d5d20..9066235feb7 100644
 -	{ 0x3d400218, 0x68040404 },
 -#else
 -	{ 0x3d400200, 0x16 },
--	{ 0x3d40020c, 0x0 },
--	{ 0x3d400210, 0x1f1f },
--	{ 0x3d400204, 0x80808 },
--	{ 0x3d400214, 0x7070707 },
++	{ 0x3d400108, 0x70e1617 },
++	{ 0x3d400200, 0x17 },
+ 	{ 0x3d40020c, 0x0 },
+ 	{ 0x3d400210, 0x1f1f },
+ 	{ 0x3d400204, 0x80808 },
+ 	{ 0x3d400214, 0x7070707 },
 -	{ 0x3d400218, 0x68070707 },
 -#endif
 -	{ 0x3d40021c, 0xf08 },
@@ -570,14 +568,12 @@ index 8c5306d5d20..9066235feb7 100644
  	{ 0x54004, 0x2 },
  	{ 0x54005, 0x2228 },
  	{ 0x54006, 0x14 },
-@@ -1147,59 +1069,27 @@ struct dram_cfg_param ddr_fsp0_cfg[] = {
- 	{ 0x54009, 0xc8 },
+@@ -1148,58 +1070,26 @@ struct dram_cfg_param ddr_fsp0_cfg[] = {
  	{ 0x5400b, 0x2 },
  	{ 0x5400f, 0x100 },
--	{ 0x54012, 0x310 },
+ 	{ 0x54012, 0x310 },
 -	{ 0x54019, 0x24c4 },
 -	{ 0x5401a, 0x33 },
-+	{ 0x54012, 0x110 },
 +	{ 0x54019, 0x2dd4 },
 +	{ 0x5401a, 0x31 },
  	{ 0x5401b, 0x4866 },
@@ -591,10 +587,9 @@ index 8c5306d5d20..9066235feb7 100644
  	{ 0x54022, 0x4800 },
  	{ 0x54024, 0x16 },
  	{ 0x5402b, 0x1000 },
--	{ 0x5402c, 0x3 },
+ 	{ 0x5402c, 0x3 },
 -	{ 0x54032, 0xc400 },
 -	{ 0x54033, 0x3324 },
-+	{ 0x5402c, 0x1 },
 +	{ 0x54032, 0xd400 },
 +	{ 0x54033, 0x312d },
  	{ 0x54034, 0x6600 },
@@ -648,24 +643,6 @@ index 8c5306d5d20..9066235feb7 100644
  /* P1 message block paremeter for training firmware */
  struct dram_cfg_param ddr_fsp1_cfg[] = {
  	{ 0xd0000, 0x0 },
-@@ -1219,7 +1110,7 @@ struct dram_cfg_param ddr_fsp1_cfg[] = {
- 	{ 0x54009, 0xc8 },
- 	{ 0x5400b, 0x2 },
- 	{ 0x5400f, 0x100 },
--	{ 0x54012, 0x310 },
-+	{ 0x54012, 0x110 },
- 	{ 0x54019, 0x84 },
- 	{ 0x5401a, 0x33 },
- 	{ 0x5401b, 0x4866 },
-@@ -1231,7 +1122,7 @@ struct dram_cfg_param ddr_fsp1_cfg[] = {
- 	{ 0x54022, 0x4800 },
- 	{ 0x54024, 0x16 },
- 	{ 0x5402b, 0x1000 },
--	{ 0x5402c, 0x3 },
-+	{ 0x5402c, 0x1 },
- 	{ 0x54032, 0x8400 },
- 	{ 0x54033, 0x3300 },
- 	{ 0x54034, 0x6600 },
 @@ -1247,6 +1138,7 @@ struct dram_cfg_param ddr_fsp1_cfg[] = {
  	{ 0xd0000, 0x1 },
  };
@@ -674,24 +651,6 @@ index 8c5306d5d20..9066235feb7 100644
  /* P2 message block paremeter for training firmware */
  struct dram_cfg_param ddr_fsp2_cfg[] = {
  	{ 0xd0000, 0x0 },
-@@ -1259,7 +1151,7 @@ struct dram_cfg_param ddr_fsp2_cfg[] = {
- 	{ 0x54009, 0xc8 },
- 	{ 0x5400b, 0x2 },
- 	{ 0x5400f, 0x100 },
--	{ 0x54012, 0x310 },
-+	{ 0x54012, 0x110 },
- 	{ 0x54019, 0x84 },
- 	{ 0x5401a, 0x33 },
- 	{ 0x5401b, 0x4866 },
-@@ -1271,7 +1163,7 @@ struct dram_cfg_param ddr_fsp2_cfg[] = {
- 	{ 0x54022, 0x4800 },
- 	{ 0x54024, 0x16 },
- 	{ 0x5402b, 0x1000 },
--	{ 0x5402c, 0x3 },
-+	{ 0x5402c, 0x1 },
- 	{ 0x54032, 0x8400 },
- 	{ 0x54033, 0x3300 },
- 	{ 0x54034, 0x6600 },
 @@ -1287,11 +1179,11 @@ struct dram_cfg_param ddr_fsp2_cfg[] = {
  	{ 0xd0000, 0x1 },
  };
@@ -706,14 +665,12 @@ index 8c5306d5d20..9066235feb7 100644
  	{ 0x54004, 0x2 },
  	{ 0x54005, 0x2228 },
  	{ 0x54006, 0x14 },
-@@ -1300,59 +1192,27 @@ struct dram_cfg_param ddr_fsp0_2d_cfg[] = {
- 	{ 0x5400b, 0x2 },
+@@ -1301,58 +1193,26 @@ struct dram_cfg_param ddr_fsp0_2d_cfg[] = {
  	{ 0x5400f, 0x100 },
  	{ 0x54010, 0x1f7f },
--	{ 0x54012, 0x310 },
+ 	{ 0x54012, 0x310 },
 -	{ 0x54019, 0x24c4 },
 -	{ 0x5401a, 0x33 },
-+	{ 0x54012, 0x110 },
 +	{ 0x54019, 0x2dd4 },
 +	{ 0x5401a, 0x31 },
  	{ 0x5401b, 0x4866 },
@@ -758,10 +715,9 @@ index 8c5306d5d20..9066235feb7 100644
  	{ 0x54022, 0x4800 },
  	{ 0x54024, 0x16 },
  	{ 0x5402b, 0x1000 },
--	{ 0x5402c, 0x3 },
+ 	{ 0x5402c, 0x3 },
 -	{ 0x54032, 0xf400 },
 -	{ 0x54033, 0x333f },
-+	{ 0x5402c, 0x1 },
 +	{ 0x54032, 0xd400 },
 +	{ 0x54033, 0x312d },
  	{ 0x54034, 0x6600 },
@@ -1042,7 +998,7 @@ index 2dc3ebc5b97..59f20e820ef 100644
 diff --git a/include/configs/imx8mp_evk.h b/include/configs/imx8mp_evk.h
 old mode 100644
 new mode 100755
-index a26c651dcf5..5864e9a4dfb
+index a26c651dcf5..39d7a344a81
 --- a/include/configs/imx8mp_evk.h
 +++ b/include/configs/imx8mp_evk.h
 @@ -61,7 +61,7 @@
@@ -1054,7 +1010,7 @@ index a26c651dcf5..5864e9a4dfb
  	func(MMC, mmc, 1) \
  	func(MMC, mmc, 2)
  
-@@ -196,15 +196,15 @@
+@@ -196,7 +196,7 @@
  
  #define CONFIG_MMCROOT			"/dev/mmcblk1p2"  /* USDHC2 */
  
@@ -1062,14 +1018,13 @@ index a26c651dcf5..5864e9a4dfb
 +/* Totally 4GB DDR */
  #define CONFIG_SYS_SDRAM_BASE		0x40000000
  #define PHYS_SDRAM			0x40000000
--#define PHYS_SDRAM_SIZE			0xC0000000	/* 3 GB */
-+#define PHYS_SDRAM_SIZE			0xC0000000	/* 2 GB */
- #define PHYS_SDRAM_2			0x100000000
+ #define PHYS_SDRAM_SIZE			0xC0000000	/* 3 GB */
+@@ -204,7 +204,7 @@
  #ifdef CONFIG_TARGET_IMX8MP_DDR4_EVK
  #define PHYS_SDRAM_2_SIZE		0x40000000	/* 1 GB */
  #else
 -#define PHYS_SDRAM_2_SIZE		0xC0000000	/* 3 GB */
-+#define PHYS_SDRAM_2_SIZE		0x40000000	/* 0 GB */
++#define PHYS_SDRAM_2_SIZE		0x40000000	/* 1 GB */
  #endif
  
  #define CONFIG_MXC_UART_BASE		UART2_BASE_ADDR
