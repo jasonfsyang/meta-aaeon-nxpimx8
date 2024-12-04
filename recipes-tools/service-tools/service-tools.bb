@@ -8,6 +8,7 @@ SRC_URI = "\
 	file://lancfg.sh \
 	file://setup_gpios.sh \
 	file://watchdog.sh \
+	file://m0cli \
 "
 
 S = "${WORKDIR}"
@@ -20,6 +21,7 @@ do_install () {
 	install -m 0755 ${WORKDIR}/watchdog.service ${D}/lib/systemd/system
 	
 	install -d ${D}/usr/sbin
+	install -m 0755 ${WORKDIR}/m0cli ${D}/usr/sbin/m0cli
 	install -m 0755 ${WORKDIR}/lancfg.sh ${D}/usr/sbin
 	install -m 0755 ${WORKDIR}/setup_gpios.sh ${D}/usr/sbin
 	install -m 0755 ${WORKDIR}/watchdog.sh ${D}/usr/sbin
@@ -47,5 +49,6 @@ FILES_${PN} += " /usr/sbin/lancfg.sh"
 FILES_${PN} += " /usr/sbin/setup_gpios.sh"
 FILES_${PN} += " /lib/systemd/system/watchdog.service"
 FILES_${PN} += " /usr/sbin/watchdog.sh"
+FILES:${PN} += " /usr/sbin/m0cli"
 
 

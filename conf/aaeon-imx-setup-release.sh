@@ -154,7 +154,7 @@ else
     cp $BUILD_DIR/conf/local.conf.org $BUILD_DIR/conf/local.conf
 fi
 
-echo "IMAGE_INSTALL:append = \"service-tools kirkstone-tools\"" >> conf/local.conf
+echo "IMAGE_INSTALL:append = \"service-tools aaeon-tools\"" >> conf/local.conf
 
 echo >> conf/local.conf
 echo "# Switch to Debian packaging and include package-management in the image" >> conf/local.conf
